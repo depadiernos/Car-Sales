@@ -12,10 +12,10 @@ const initialState = {
 export function reducer(state = initialState, action) {
     switch (action.type) {
         case ADD_FEATURE:
-            return {
+            return !state.features.includes(action.payload)?{
                 ...state,
                 features: [...state.features, action.payload]
-            };
+            }: state;
         case REMOVE_FEATURE:
             return {
                 ...state,
